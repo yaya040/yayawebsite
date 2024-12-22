@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Yayaa Webpage</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('ribon.jpg'); /* Replace with your image file path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      color: rgba(255, 20, 147, 0.9);
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    /* Welcome screen styling */
+    #welcome-screen {
+      text-align: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-image: url('giphy.gif'); /* Replace with your welcome background image */
+      background-size: cover;
+      background-position: center;
+    }
+
+    .welcome-button {
+      padding: 15px 30px;
+      font-size: 1.5em;
+      color: white;
+      background-color: rgba(255, 20, 147, 0.8);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .welcome-button:hover {
+      background-color: gold;
+      transform: scale(1.05);
+    }
+
+    /* Animation for the heading */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Content styling */
+    .content {
+      text-align: center;
+      padding: 50px;
+      background-color: rgba(173, 216, 230, 0.8);
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 100px auto;
+      box-shadow: 0 4px 20px pink;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px pink;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    h1:hover {
+      color: gold; /* Color change on hover */
+      transform: scale(1.05); /* Slight zoom on hover */
+    }
+
+    p {
+      margin: 20px 0 0;
+      font-size: 1.2em;
+      transition: color 0.3s;
+    }
+
+    p:hover {
+      color: #FF69B4; /* Change text color on hover */
+    }
+
+    nav {
+      background-color: rgba(255, 20, 147, 0.9);
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 10px red;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: gold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 30px black;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .box {
+      background-image: url('floral.jpg'); /* Replace with your box background image */
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      margin-top: 0;
+      border-bottom: 2px solid lightblue;
+      padding-bottom: 10px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    h2:hover {
+      color: #FF1493; /* Change color on hover */
+      transform: scale(1.02); /* Slight zoom on hover */
+    }
+
+    p {
+      line-height: 1.8;
+      margin: 15px 0;
+    }
+
+    audio, video {
+      display: block;
+      margin: 20px auto;
+      border-radius: 40px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: pink;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    }
+/* Round frame styling for the image */
+    .round-image {
+      display: block;
+      margin: -30px auto 30px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 5px solid pink;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .round-image:hover {
+      transform: scale(1.1); /* Zoom effect on hover */
+    }
+
+    /* Photos in About Us */
+    .about-photos {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .about-photos img {
+      width: 20%;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .about-photos img:hover {
+      transform: scale(1.05); /* Zoom effect on hover */
+    }
+    /* Gallery styling */
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 20%;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05); /* Zoom effect on hover */
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .content {
+        padding: 60px;
+        margin: 50px auto;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      .container {
+        margin: 40px;
+        padding: 20px;
+      }
+
+      .about-photos img {
+        width: 90%;
+        margin-bottom: 30px;
+      }
+
+      .gallery img {
+        width: 90%;
+      }
+    }
+
+    /* Table styling */
+    table {
+      width: 70%; /* Reduced width for a smaller table */
+      border-collapse: collapse;
+      margin: 20px auto; /* Center the table */
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #ffcccb; /* Light red */
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2; /* Light gray */
+    }
+
+    tr:hover {
+      background-color: #e0ffff; /* Light cyan */
+    }
+
+    /* Audio positioning */
+    .audio-container {
+      position: absolute;
+      top: 50%;
+      left: -1px; /* Adjusted to move it more to the side */
+      transform: translateY(-50%);
+    }
+  </style>
+  <script>
+    function enterSite() {
+      document.getElementById('welcome-screen').style.display = 'none';
+      document.body.style.overflow = 'auto'; // Enable scrolling after entering
+    }
+  </script>
+</head>
+<body>
+  <div id="welcome-screen">
+    <h1>Welcome to Yayaa!</h1>
+    <button class="welcome-button" onclick="enterSite()">Enter</button>
+  </div>
+
+  <div class="content">
+    <h1>Welcome to Yayaa Webpage</h1>
+    <p>Embrace the love, creativity, and inspiration.</p>
+  </div>
+
+  <div class="audio-container">
+    <audio controls>
+      <source src="with me.mp3" type="audio/mpeg"> <!-- Replace with your audio file -->
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <img src="background.jpg" alt="A beautiful view" class="round-image">
+
+  <nav>
+    <a href="#about">About Me</a>
+    <a href="#experience">Experience</a>
+    <a href="#family">Family</a>
+    <a href="#media">Audio & Video</a>
+    <a href="#contact">Contact Me</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+<div class="container">
+    <div class="box" id="about">
+      <h2>About Me</h2>
+      <p>Welcome to Yayaa! We are dedicated to sharing love and creativity through our work. Our mission is to inspire and connect with people from all walks of life. Hi, my name is Siti Suraya binti Sabri. I'm 20 years old and live in Pasir Puteh, Kelantan. I enjoy making this website because I can learn new things. I have 6 siblings and I am the third child. I am a happy-go-lucky person and like to try new things.</p>
+      
+      <div class="about-photos">
+        <img src="hitam.jpg" alt="Photo 1"> <!-- Replace with your image file -->
+        <img src="birthday.jpg" alt="Photo 2"> <!-- Replace with your image file -->
+        <img src="konset.jpg" alt="Photo 3"> <!-- Replace with your image file -->
+      </div>
+    </div>
+
+    <div class="box" id="experience">
+      <h2>Experience</h2>
+      <div style="display: flex; align-items: center;">
+        <img src="logo skwr.jpg" alt="Elementary School Logo" style="width: 50px; margin-right: 10px;"> <!-- Replace with your logo file -->
+        <p>Elementary School: Sekolah Kebangsaan Wakaf Raja (2010-2016)</p>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <img src="logo saniah.jpg" alt="Secondary School Logo" style="width: 50px; margin-right: 10px;"> <!-- Replace with your logo file -->
+        <p>Secondary School: Maahad Saniah (2016-2022)</p>
+      </div>
+      <div style="display: flex; align-items: center;">
+        <img src="logo uitm.jpg" alt="Diploma Logo" style="width: 50px; margin-right: 10px;"> <!-- Replace with your logo file -->
+        <p>Diploma: UiTM Campus Machang (2022-2025)</p>
+      </div>
+    </div>
+
+    <div class="box" id="family">
+      <h2>Family</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Relation</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Father</td>
+            <td>Sabri bin Abdullah</td>
+          </tr>
+          <tr>
+            <td>Mother</td>
+            <td>Azira binti Mustapha</td>
+          </tr>
+          <tr>
+            <td>Brother 1</td>
+            <td>Ahmad Ajwad</td>
+          </tr>
+          <tr>
+            <td>Brother 2</td>
+            <td>Ahmad Aizad</td>
+          </tr>
+          <tr>
+            <td>Me</td>
+            <td>Siti Suraya</td>
+          </tr>
+          <tr>
+            <td>Sister 1</td>
+            <td>Nuur Nia Aisyah</td>
+          </tr>
+          <tr>
+            <td>Sister 2</td>
+            <td>Nuur Nia Arissa</td>
+          </tr>
+          <tr>
+            <td>Brother 3</td>
+            <td>Harraz Arrazi</td>
+          </tr>
+        </tbody>
+      </table>
+      <img src="family.jpg" alt="Family Photo" style="display: block; margin: 20px auto; width: 300px; border-radius: 10px;"> <!-- Replace with your family photo -->
+    </div>
+
+    <div class="box" id="media">
+      <h2>Audio & Video</h2>
+      <p>Explore our collection of audio and video content that showcases our journey, projects, and events. Thank you for watching! xoxo!</p>
+      <audio controls>
+        <source src="apetu.mp3" type="audio/mpeg"> <!-- Replace with your audio file -->
+        Your browser does not support the audio element.
+      </audio>
+      <video width="30%" controls>
+        <source src="slides.mov" type="video/mp4"> <!-- Replace with your video file -->
+        Your browser does not support the video tag.
+      </video>
+    </div>
+<div class="box" id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="mirror.jpg" alt="Gallery Photo 1"> <!-- Replace with your image file -->
+        <img src="capybara.jpg" alt="Gallery Photo 2"> <!-- Replace with your image file -->
+        <img src="cafe.jpg" alt="Gallery Photo 3"> <!-- Replace with your image file -->
+        <img src="lata.jpg" alt="Gallery Photo 4"> <!-- Replace with your image file -->
+        <img src="saf.jpg" alt="Gallery Photo 5"> <!-- Replace with your image file -->
+        <img src="karisma.jpg" alt="Gallery Photo 6"> <!-- Replace with your image file -->
+        <img src="raya biru.jpg" alt="Gallery Photo 7"> <!-- Replace with your image file -->
+        <img src="rayaa.jpg" alt="Gallery Photo 8"> <!-- Replace with your image file -->
+        <img src="library.jpg" alt="Gallery Photo 9"> <!-- Replace with your image file -->
+        <img src="cameron.jpg" alt="Gallery Photo 10"> <!-- Replace with your image file -->
+      </div>
+    </div>
+
+    <div class="box" id="contact">
+      <h2>Contact Me</h2>
+      <p>If you’d like to get in touch, feel free to reach out:</p>
+      <p>
+        <i class="fas fa-envelope" style="color: #EA4335;"></i>
+        Email: <a href="mailto:sssurayayaaa4@gmail.com" style="color: gold;">sssurayayaaa4@gmail.com</a>
+      </p>
+      <p>
+        <i class="fab fa-instagram" style="color: #C13584;"></i>
+        Instagram: <a href="https://instagram.com/yayaaaaarss" style="color: gold;">@yayaaaaarss</a>
+      </p>
+      <p>
+        <i class="fab fa-facebook" style="color: #1877F2;"></i>
+        Facebook: <a href="https://facebook.com/yourusername" style="color: gold;">Siti Suraya</a> <!-- Replace with your Facebook profile link -->
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Yayaa. All rights reserved.</p>
+  </footer>
+</body>
+</html>
